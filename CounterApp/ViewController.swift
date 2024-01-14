@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    //variables & funcs
+    //переменные и функции
     private var counterValue:Int = 0
     private var logValue:String = "История изменений:\n"
     
