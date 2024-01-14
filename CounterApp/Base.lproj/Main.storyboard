@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,24 +32,37 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaG-eq-CoX">
-                                <rect key="frame" x="309" y="58" width="68" height="35"/>
+                                <rect key="frame" x="302" y="58" width="83" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Reset"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reset">
+                                    <imageReference key="image" image="trash" catalog="system" symbolScale="small"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="buttonResetAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Uz-98-rXI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6f-DL-jKf">
                                 <rect key="frame" x="16" y="754" width="179" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Reduce"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Reduce">
+                                    <imageReference key="image" image="minus" catalog="system" symbolScale="medium"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="buttonReduceAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S0Z-id-5Gn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3r-cv-1X0">
                                 <rect key="frame" x="203" y="754" width="174" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Add"/>
+                                <buttonConfiguration key="configuration" style="tinted" image="plus" catalog="system" imagePlacement="trailing" title="Add"/>
+                                <connections>
+                                    <action selector="buttonAddAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HK9-EI-Zp6"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wno-sZ-ePy">
                                 <rect key="frame" x="16" y="188" width="361" height="534"/>
@@ -63,6 +77,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="buttonAdd" destination="x3r-cv-1X0" id="lSh-aU-yPv"/>
+                        <outlet property="buttonReduce" destination="T6f-DL-jKf" id="Rk3-08-uBJ"/>
+                        <outlet property="buttonReset" destination="vaG-eq-CoX" id="Ugb-ga-1KK"/>
+                        <outlet property="logsDisplay" destination="wno-sZ-ePy" id="65H-bV-g6Y"/>
+                        <outlet property="valueDisplay" destination="KQj-aI-JVg" id="pay-OB-8x0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,6 +91,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="minus" catalog="system" width="128" height="26"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
